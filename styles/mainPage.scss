@@ -8,6 +8,7 @@
 $dark-color: #28293E;
 $color-text-dark: rgba(57, 20, 0, 1);
 $color-text-opacity: rgba(57, 20, 0, 0.64);
+$Text_Light_Gray: rgba(255, 255, 255, 0.64);
 
 @mixin flex-center {
 	display: flex;
@@ -21,6 +22,44 @@ $color-text-opacity: rgba(57, 20, 0, 0.64);
 	text-transform: uppercase;
 	letter-spacing: 3px;
 }
+
+@mixin button-white {
+	color: #28293E;
+	text-transform: uppercase;
+	font-weight: 800;
+	background-color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 17px 35px 16px 35px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	&:hover {
+		color: #fff;
+		background-color: #EF6D58;
+	}
+}
+
+
+
+
+
+@mixin button-orange {
+	background-color: rgba(239, 109, 88, 1);
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	text-transform: uppercase;
+	padding: 15px 30px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	font-weight: 700;
+	transition: all 0.3s ease;
+	&:hover {
+		background-color: rgb(161, 71, 57);
+	}
+}
+
 
 
 html {
@@ -97,7 +136,7 @@ html {
 .main {
 	background-color: $dark-color;
 	margin: 0;
-	height: 100vh;
+	//! height: 100vh; так нельзя делать
 	width: 100%;
 }
 
@@ -528,16 +567,15 @@ html {
 			margin-bottom: 30px;
 		}
 		&-list {
-			// list-style: url(../images/check.svg);
 			margin-top: 34px;
-			margin-left: 32px;
+
 			li {
 				font-size: 16px;
 				font-weight: 330;
 				color: rgba(255, 255, 255, 0.64);
 				display: flex;
 				align-items: center;
-				justify-content: start;
+				justify-content: flex-start;
 				padding-bottom: 20px;
 
 				&::before {
@@ -554,7 +592,7 @@ html {
 	}
 }
 
-// CONTACT ME--------------------------------
+// ?CONTACT ME--------------------------------
 .main-contact {
 	background-color: rgba(249, 229, 218, 1);
 	padding-bottom: 40px;
@@ -626,15 +664,23 @@ html {
 		width: 282px;
 		height: 242px;
 		margin-top: 60px;
+		margin-left: 100px;
+		position: relative;
+	  >img {
+			position: absolute;
+			right: -22px;
+			top: 25px;
+		}
 	}
 	
 }
 
 
 
-// TESTIMONIALS--------------------------------
+// ?TESTIMONIALS--------------------------------
 .main-testimonials {
 	padding: 108px 0 96px;
+	background-color: #FDF0E9;
 
 	&__title {
 		@include title-orange;
@@ -692,10 +738,526 @@ html {
 					justify-content: center;
 				}
 			}
+		}
+	}
+
+	&__button-box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&-btn {
+			color: #28293E;
+			text-transform: uppercase;
+			font-weight: 800;
+			background-color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 17px 35px 16px 35px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+	
 			
+			margin-top: 64px;
+			&:hover {
+				color: #fff;
+				background-color: #EF6D58;
+			}
 		}
 	}
 }
+
+// ?FAQ--------------------------------
+.main-FAQ {
+	background-color: $dark-color;
+
+	padding-bottom: 123px;
+	&__box {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__contentLeft {
+		padding-top: 144px;
+
+		&-title {
+			@include title-orange;
+
+			margin-bottom: 17px;
+		}
+		&-subtitle {
+			font-size: 40px;
+			font-weight: 800;
+			color: #fff;
+
+			margin-bottom: 31px;
+		}
+		&-text {
+			font-size: 16px;
+			font-weight: 330;
+			color: rgba(255, 255, 255, 0.64);
+			line-height: 1.7;
+			
+			margin-bottom: 30px;
+		}
+
+		&-button {
+			display: inline-block;
+			font-weight: 330;
+			color: #fff;
+			border: none;
+			text-decoration: none;
+			cursor: pointer;
+
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: #EF6D58;
+				transform: translateX(10px);
+				&:before {
+					transform: translateX(5px);
+					opacity: 1; 
+				}
+			}
+			&:before {
+				content: '→'; 
+				opacity: 0; 
+				transition: all 0.3s ease;
+				color: #EF6D58; 
+
+				margin-right: 10px;
+			}
+		}
+	}
+	&__contentRight {
+		padding-top: 160px;
+
+		&-list {
+			list-style: none;
+			li {
+				font-size: 24px;
+				font-weight: 700;
+				color: #fff;
+				padding: 41px 48px;
+				border: 1px solid rgba(58, 60, 86, 1);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				&:after {
+					content: '';
+					display: inline-block;
+					background: url(../images/FAQ-down.svg) no-repeat center center / contain;
+					width: 32px;
+					height: 32px;
+					margin-left: 60px;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+
+	&__footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		margin-top: 144px;
+	}
+
+}
+
+
+
+// MAIN-BLOG--------------------------------
+.main-blog {
+	padding-top: 92px;
+	padding-bottom: 84px;
+	background-color: #FDF0E9;
+
+	&__title {
+		@include title-orange;
+
+		margin-bottom: 20px;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: 70px;
+
+		&-subtitle {
+			font-size: 56px;
+			font-weight: 800;
+			color: $color-text-dark;
+			
+		}
+
+		&-button {
+			color: #28293E;
+			text-transform: uppercase;
+			font-weight: 800;
+			background-color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 17px 35px 16px 35px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+	
+			
+			margin-bottom: 10px;
+			&:hover {
+				color: #fff;
+				background-color: #EF6D58;
+			}
+		}
+	}
+	
+	&__cards {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 68px;
+		
+
+		&-cardLeft {
+
+			&-title {
+				font-size: 20px;
+				font-weight: 330;
+				color: $color-text-dark;
+
+				margin-bottom: 31px;
+				margin-top: 26px;
+			}
+
+			&-subtitle {
+				font-size: 40px;
+				font-weight: 800;
+				color: $color-text-dark;
+
+				margin-bottom: 20px;
+			}
+
+			&-date {
+				font-size: 16px;
+				font-weight: 330;
+				color: rgba(57, 20, 0, 0.64);
+			}
+		}
+
+		&-cardRight {
+
+			&-card {
+				margin-bottom: 20px;
+
+				&-title {
+					font-size: 20px;
+					font-weight: 330;
+					color: $color-text-dark;
+	
+					margin-bottom: 15px;
+					margin-top: 26px;
+				}
+
+				&-subtitle {
+					font-size: 24px;
+					font-weight: 700;
+					color: $color-text-dark;
+
+	
+					margin-bottom: 17px;
+				}
+				&-date {
+					font-size: 16px;
+					font-weight: 330;
+					color: rgba(57, 20, 0, 0.64);
+
+					margin-bottom: 13px;
+				}
+				
+			}
+		}
+	}
+
+
+	&__footer {
+		padding-top: 56px;
+		border-top: 1px solid rgba(243, 209, 191, 1);
+
+		display: flex;
+		justify-content: space-between;
+
+		&-left {
+			&-title {
+				font-size: 24px;
+				font-weight: 650;
+				color: $color-text-dark;
+
+				margin-bottom: 10px;
+			}
+
+			&-text {
+				font-size: 16px;
+				font-weight: 330;
+				color: $color-text-opacity
+			}
+
+		}
+
+		&-right {
+
+			&-input {
+				width: 370px;
+				height: 48px;
+				border-radius: 5px;
+				border: 1px solid rgba(243, 209, 191, 1);
+				padding: 10px 20px;
+				font-size: 16px;
+				color: $color-text-dark;
+			}
+
+			&-button {
+				@include button-white;
+				margin-left: 36px;
+			}
+		}
+	}
+}
+
+
+// CONTACT-FORM--------------------------------
+.main-contactForm {
+	background-color: $dark-color;
+	padding: 178px 0 208px;
+
+	&__box {
+		display: flex;
+		justify-content: space-between;
+		gap: 130px;
+	}
+
+	&-form {
+		background-color: #fff;
+		padding: 54px 48px 48px 48px;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+
+		&-name {
+			font-size: 24px;
+			font-weight: 800;
+			color: $color-text-dark;
+
+			margin-bottom: 20px;
+		}
+
+		&-input {
+			width: 474px;
+			height: 48px;
+			border-radius: 5px;
+			border: 1px solid rgba(243, 209, 191, 1);
+			padding: 10px 20px;
+			font-size: 16px;
+			color: $color-text-dark;
+
+			margin-bottom: 20px;
+		}
+				
+		&-textarea {
+			@extend .main-contactForm-form-input;
+			width: 474px;
+			height: 158px;
+			margin-bottom: 40px;
+		}
+
+		&-button {
+			display: block;
+			@include button-orange;
+			align-self: flex-end;
+		}
+	}
+
+	&__info {
+		&-title {
+			@include title-orange;
+
+			margin-bottom: 25px;
+		}
+
+		&-subtitle {
+			font-size: 56px;
+			font-weight: 800;
+			color: #fff;
+
+			margin-bottom: 33px;
+		}
+
+		&-text {
+			font-size: 16px;
+			font-weight: 330;
+			line-height: 1.7;
+			color: rgba(255, 255, 255, 0.64);
+		}
+
+		&-list {
+			margin-top: 34px;
+
+			li {
+				font-size: 20px;
+				font-weight: 330;
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: start;
+				padding-bottom: 20px;
+
+				&::before {
+					content: '';
+					display: inline-block;
+					width: 48px;
+					height: 48px;
+					border-radius: 50%;
+					background: url(../images/touch/Shape.png) no-repeat center center, #EF6C58;
+					margin-right: 10px;
+				}
+			}
+
+			li:nth-child(2) {
+				&::before {
+					background: url(../images/touch/Shape2.png) no-repeat center center, #EF6C58;
+				}
+			}
+			li:nth-child(3) {
+				&::before {
+					background: url(../images/touch/Shape3.png) no-repeat center center , #EF6C58;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+// PROMO-SECTION--------------------------------
+.main-promoSection {
+	padding-top: 139px;
+	padding-bottom: 139px;
+	background-color: #FDF0E9;
+
+
+	&__box {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__content {
+		&-title {
+			@include title-orange;
+
+			margin-bottom: 40px;
+		}
+
+		&-subtitle {
+			font-size: 56px;
+			font-weight: 800;
+			color: $color-text-dark;
+
+			margin-bottom: 32px;
+		}
+
+		&-text {
+			font-size: 16px;
+			font-weight: 330;
+			color: $color-text-opacity;
+			line-height: 1.7;
+			margin-bottom: 38px;
+		}
+
+		&-button {
+			@include button-orange;
+		}
+
+	}
+}
+
+
+// FOOTER--------------------------------
+.footer__images {
+	background-color: #FDF0E9;
+}
+
+.footer__images {
+	display: flex;
+	justify-content: center;
+
+}
+
+.footer {
+	background-color: $dark-color;
+	padding-top: 89px;
+	padding-bottom: 52px;
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 68px;
+
+		&-logo {
+			font-size: 24px;
+			font-weight: 650;
+			color: #fff;
+		}
+
+		&-menu {
+			&-title {
+				@include title-orange;
+
+				margin-bottom: 30px;
+			}
+
+			ul {
+				list-style: none;
+				li {
+					font-size: 16px;
+					font-weight: 330;
+					color: #fff;
+					padding-bottom: 15px;
+				}
+			}
+		}
+
+		&-links {
+			cursor: pointer;
+		}
+	}
+
+
+	&__copyright {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 43px;
+		padding-bottom: 20px;
+		border-top: 1px solid rgba(58, 60, 86, 1);
+
+		&-text {
+			font-size: 16px;
+			font-weight: 330;
+			color: $Text_Light_Gray;
+		}
+		&-links {
+			display: flex;
+			gap: 68px;
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+
 
 
 
