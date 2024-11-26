@@ -10,11 +10,20 @@ $color-text-dark: rgba(57, 20, 0, 1);
 $color-text-opacity: rgba(57, 20, 0, 0.64);
 $Text_Light_Gray: rgba(255, 255, 255, 0.64);
 
+
+@mixin flex($align-items, $justify-content, $direction:row) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-direction: $direction;
+}
+
 @mixin flex-center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
 @mixin title-orange {
 	font-size: 16px;
 	font-weight: 400;
@@ -38,9 +47,6 @@ $Text_Light_Gray: rgba(255, 255, 255, 0.64);
 		background-color: #EF6D58;
 	}
 }
-
-
-
 
 
 @mixin button-orange {
@@ -84,13 +90,25 @@ html {
 			font-weight: 700;
 		}
 	}
-
+	// !MENU
+	&__menu {
+		display: none;
+		@media (max-width: 500px) {
+			display: block;
+		}
+	}
 }
 
 .wrapper {
 	max-width: 1240px;
 	margin: 0 auto;
+	@media (max-width: 1240px) {
+		max-width: 100%;
+		padding: 0 15px;
+	}
 }
+
+
 
 .button {
 	background-color: inherit;
@@ -108,6 +126,9 @@ html {
 		background-color: #fff;
 		color: $dark-color;
 	}
+	@media (max-width: 500px) {
+		display: none;
+	}
 }
 
 .header__nav {
@@ -115,6 +136,10 @@ html {
 		display: flex;
 		gap: 70px;
 		list-style: none;
+
+		@media (max-width: 500px) {
+			display: none;
+		}
 	}
 	&-item {
 		transition: 0.4s ease;
@@ -144,6 +169,11 @@ html {
 	display: flex;
 	justify-content: space-between;
 	padding-bottom: 139px;
+	@media (max-width: 500px) {
+		flex-direction: column-reverse;
+		gap: 50px;
+		padding: 10px 10px 48px 10px;
+	}
 
 	&-title {
 		font-size: 72px;
@@ -157,6 +187,10 @@ html {
 		color: rgba(255, 255, 255, 0.64);
 		margin-bottom: 34px;
 		line-height: 1.5;
+		width: 470px;
+		@media (max-width: 500px) {
+			max-width: 90%;
+		}
 	}
 	&-button {
 		background-color: rgba(239, 109, 88, 1);
@@ -175,7 +209,14 @@ html {
 		}
 	}
 	&-image {
-		margin-top: 120px;
+		margin-top: 10px;
+		img {
+			@media (max-width: 500px) {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
 	}
 }
 
@@ -186,6 +227,9 @@ html {
 	text-transform: uppercase;
 	padding-top: 204px;
 	letter-spacing: 3px;
+	@media (max-width: 500px) {
+		padding-top: 10px;
+	}
 }
 
 // main-service
@@ -220,6 +264,9 @@ html {
 .main-service__cards {
 	display: flex;
 	margin-top: 35px;
+	@media (max-width: 500px) {
+		flex-direction: column;
+	}
 }
 
 
@@ -228,6 +275,13 @@ html {
 	border: 1px solid rgba(243, 209, 191, 1);
 	border-radius: 5px 0 0 5px;
 	padding: 48px;
+
+	@media (max-width: 500px) {
+		width: 100%;
+		padding: 20px;
+	}
+
+
 	&-description {
 		color: rgba(57, 20, 0, 0.64);
 		font-size: 16px;
@@ -293,7 +347,7 @@ html {
 
 
 
-// PORTFOLIO--------------------------------
+// ?PORTFOLIO--------------------------------
 .main-portfolio {
 	//HEADER
 	&__header {
@@ -310,26 +364,66 @@ html {
 	&__header-flex {
 		display: flex;
 		justify-content: space-between;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
+	&__header-button {
+		background-color: inherit;
+		color: #fff;
+		border: 1px solid rgba(255, 255, 255, 0.2957);
+		border-radius: 5px;
+		text-transform: uppercase;
+		padding: 17px 30px 16px 30px;
+		font-size: 14px;
+		font-weight: 500;
+		cursor: pointer;
+		font-weight: 700;
+		transition: all 0.3s ease;
+		&:hover {
+			background-color: #fff;
+			color: $dark-color;
+		}
+		@media (max-width: 500px) {
+			width: 174px;
+		}
 	}
 	&__header-subtitle {
 		font-size: 56px;
     color: white;
 		font-weight: 700;
+		@media (max-width: 500px) {
+			font-size: 40px;
+		}
 	}
 	//CARDS
 	&__cards {
-		width: 100%;
+		width: 80%;
 		display: flex;
 		justify-content: center;
 		padding: 0 30px;
-		margin-bottom: 66px;
+		margin: 0 auto 66px;
+
+		@media (max-width: 500px) {
+			flex-direction: column;
+			padding: 0;
+			width: 100%;
+		}
 	}
 	&__card{
-		width: calc(28% - 15px - 16px);
+		width: calc(33%);
 		height: 576px;
 		padding: 16px 15px;
 		border: 1px solid rgba(255, 255, 255, 0.075);
 		cursor: pointer;
+		@media (max-width: 500px) {
+			width: 100%;
+			height: 470px;
+			border-right: none;
+			border-left: none;
+			border-bottom: none;
+		}
 		&-image {
 			background: url(../images/SOFA.png) no-repeat center center / cover;
 			width: 100%;
@@ -363,11 +457,18 @@ html {
 		}
 	}
 	&__card2 {
-		width: calc(28% - 15px - 16px);
+		width: calc(33%);
 		height: 576px;
 		padding: 16px 15px;
 		border: 1px solid rgba(255, 255, 255, 0.075);
 		cursor: pointer;
+		@media (max-width: 500px) {
+			width: 100%;
+			height: 470px;
+			border-right: none;
+			border-left: none;
+			border-bottom: none;
+		}
 		&-image {
 			background: url(../images/KEYBOARD.png) no-repeat center center / cover;
 			width: 100%;
@@ -398,11 +499,17 @@ html {
 	}
 
 	&__card3 {
-		width: calc(28% - 15px - 16px);
+		width: calc(33%);
 		height: 576px;
 		padding: 16px 15px;
 		border: 1px solid rgba(255, 255, 255, 0.075);
 		cursor: pointer;
+		@media (max-width: 500px) {
+			width: 100%;
+			height: 470px;
+			border-right: none;
+			border-left: none;
+		}
 		&-image {
 			background: url(../images/WORKMEDIA.png) no-repeat center center / cover;
 			width: 100%;
@@ -440,8 +547,21 @@ html {
 		display: flex;
 		justify-content: space-between;
 		padding-top: 187px;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 10px;
+			padding-top: 60px;
+		}
 	}
 	&__image {
+		@media (max-width: 500px) {
+			width: 100%;
+		}
+		img {
+			@media (max-width: 500px) {
+				width: 100%;
+			}
+		}
 
 	}
 	&__content {
@@ -460,6 +580,9 @@ html {
 			font-weight: 800;
 			color: $color-text-dark;
 			margin-bottom: 30px;
+			@media (max-width: 500px) {
+				font-size: 40px;
+			}
 		}
 		&-subtitle-text {
 			font-size: 20px;
@@ -495,15 +618,22 @@ html {
 		margin-bottom: 112px;
 		display: flex;
 		align-items: center;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			margin-top: 96px;
+		}
 	}
 	&__card {
-		width: calc(50%);
+		width: calc(100%);
 		border: 1px solid rgba(243, 209, 191, 1);
 
 		padding: 32px 48px;
 		display: flex;
 		align-items: center;
 		gap: 40px;
+		@media (max-width: 500px) {
+			gap: 28px;
+		}
 
 		&-icon {
 			width: 112px;
@@ -527,13 +657,14 @@ html {
 			font-weight: 400;
 			color: $dark-color;
 			margin-bottom: 34px;
+			line-height: 1.7;
 		}
 	}
 }
 
 
 
-// FEATURES--------------------------------
+// ?FEATURES--------------------------------
 .main-features {
 	background-color: $dark-color;
 	&__box {
@@ -541,6 +672,20 @@ html {
 		padding-bottom: 159px;
 		display: flex;
 		justify-content: space-between;
+		@media (max-width: 500px) {
+			flex-direction: column-reverse;
+			gap: 10px;
+		}
+	}
+	&__image {
+		@media (max-width: 500px) {
+			width: 100%;
+		}
+		img {
+			@media (max-width: 500px) {
+				width: 100%;
+			}
+		}
 	}
 	&__content {
 		padding-top: calc(204px - 151px);
@@ -601,6 +746,12 @@ html {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px;
+			padding: 0 50px;
+		}
 	}
 	&__content {
 		&-icon {
@@ -657,6 +808,9 @@ html {
 			line-height: 1.7;
 			margin-top: 60px;
 			margin-left: 30px;
+			@media (max-width: 500px) {
+				margin-left: 0;
+			}
 		}
 	}
 	&__image {
@@ -666,11 +820,18 @@ html {
 		margin-top: 60px;
 		margin-left: 100px;
 		position: relative;
+		@media (max-width: 500px) {
+			margin: 0 auto;
+		}
 	  >img {
 			position: absolute;
 			right: -22px;
 			top: 25px;
+			@media (max-width: 500px) {
+				right: -28px;
+			}
 		}
+
 	}
 	
 }
@@ -693,17 +854,29 @@ html {
 		color: $color-text-dark;
 
 		margin-bottom: 64px;
+		@media (max-width: 500px) {
+			font-size: 40px;
+		}
 	}
 	&__cards {
 		display: flex;
 		justify-content: center;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 0;
+		}
 
 
 		&-card {
-			width: calc(33% - 30px);
+			width: calc(100%);
 			border: 1px solid rgba(243, 209, 191, 1);
 			padding: 48px 34px;
 			border-radius: 5px;
+			@media (max-width: 500px) {
+				padding: 35px 28px;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
 			
 			>img:nth-child(1) {
 				margin-bottom: 36px;
@@ -739,6 +912,22 @@ html {
 				}
 			}
 		}
+		&-card:nth-child(2) {
+			@media (max-width: 500px) {
+				margin-left: 0px;
+				border-top: none;
+				border-radius: 0;
+			}
+		}
+		&-card:nth-child(3) {
+			@media (max-width: 500px) {
+				margin-left: 0px;
+				border-top: none;
+				border-radius: 5px;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+			}
+		}
 	}
 
 	&__button-box {
@@ -767,17 +956,30 @@ html {
 	}
 }
 
+
+
+
 // ?FAQ--------------------------------
 .main-FAQ {
 	background-color: $dark-color;
 
 	padding-bottom: 123px;
+	@media (max-width: 500px) {
+		padding-bottom: 50px;
+	}
 	&__box {
 		display: flex;
 		justify-content: space-between;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 10px;
+		}
 	}
 	&__contentLeft {
 		padding-top: 144px;
+		@media (max-width: 500px) {
+			padding-top: 70px;
+		}
 
 		&-title {
 			@include title-orange;
@@ -790,6 +992,9 @@ html {
 			color: #fff;
 
 			margin-bottom: 31px;
+			@media (max-width: 500px) {
+				width: 80%;
+			}
 		}
 		&-text {
 			font-size: 16px;
@@ -830,6 +1035,9 @@ html {
 	}
 	&__contentRight {
 		padding-top: 160px;
+		@media (max-width: 500px) {
+			padding-top: 60px;
+		}
 
 		&-list {
 			list-style: none;
@@ -862,13 +1070,16 @@ html {
 		align-items: center;
 
 		margin-top: 144px;
+		@media (max-width: 500px) {
+			display: none;
+		}
 	}
 
 }
 
 
 
-// MAIN-BLOG--------------------------------
+// ?MAIN-BLOG--------------------------------
 .main-blog {
 	padding-top: 92px;
 	padding-bottom: 84px;
@@ -885,11 +1096,20 @@ html {
 		justify-content: space-between;
 		align-items: flex-end;
 		margin-bottom: 70px;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 30px;
+			margin-bottom: 40px;
+		}
 
 		&-subtitle {
 			font-size: 56px;
 			font-weight: 800;
 			color: $color-text-dark;
+			@media (max-width: 500px) {
+				font-size: 40px;
+			}
 			
 		}
 
@@ -917,9 +1137,22 @@ html {
 		display: flex;
 		justify-content: space-between;
 		padding-bottom: 68px;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 70px;
+		}
 		
 
 		&-cardLeft {
+			@media (max-width: 500px) {
+				
+			}
+			img {
+				@media (max-width: 500px) {
+					width: 100%;
+					height: 224px;
+				}
+			}
 
 			&-title {
 				font-size: 20px;
@@ -936,6 +1169,9 @@ html {
 				color: $color-text-dark;
 
 				margin-bottom: 20px;
+				@media (max-width: 500px) {
+					font-size: 24px;
+				}
 			}
 
 			&-date {
@@ -949,6 +1185,13 @@ html {
 
 			&-card {
 				margin-bottom: 20px;
+
+				img {
+					@media (max-width: 500px) {
+						width: 100%;
+						height: 224px;
+					}
+				}
 
 				&-title {
 					font-size: 20px;
@@ -987,6 +1230,11 @@ html {
 		display: flex;
 		justify-content: space-between;
 
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 30px;
+		}
+
 		&-left {
 			&-title {
 				font-size: 24px;
@@ -999,7 +1247,8 @@ html {
 			&-text {
 				font-size: 16px;
 				font-weight: 330;
-				color: $color-text-opacity
+				color: $color-text-opacity;
+				line-height: 1.7;
 			}
 
 		}
@@ -1014,26 +1263,41 @@ html {
 				padding: 10px 20px;
 				font-size: 16px;
 				color: $color-text-dark;
+				@media (max-width: 500px) {
+					width: 100%;
+					margin-bottom: 16px;
+				}
 			}
 
 			&-button {
 				@include button-white;
 				margin-left: 36px;
+				@media (max-width: 500px) {
+					margin-left: 0;
+					width: 100%;
+				}
 			}
 		}
 	}
 }
 
 
-// CONTACT-FORM--------------------------------
+// ?CONTACT-FORM--------------------------------
 .main-contactForm {
 	background-color: $dark-color;
 	padding: 178px 0 208px;
+	@media (max-width: 500px) {
+		padding: 80px 0 86px;
+	}
 
 	&__box {
 		display: flex;
 		justify-content: space-between;
 		gap: 130px;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 70px;
+		}
 	}
 
 	&-form {
@@ -1043,6 +1307,9 @@ html {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		@media (max-width: 500px) {
+			padding: 57px 28px 48px 28px;
+		}
 
 
 		&-name {
@@ -1063,6 +1330,9 @@ html {
 			color: $color-text-dark;
 
 			margin-bottom: 20px;
+			@media (max-width: 500px) {
+				width: 100%;
+			}
 		}
 				
 		&-textarea {
@@ -1070,6 +1340,9 @@ html {
 			width: 474px;
 			height: 158px;
 			margin-bottom: 40px;
+			@media (max-width: 500px) {
+				width: 100%;
+			}
 		}
 
 		&-button {
@@ -1092,6 +1365,9 @@ html {
 			color: #fff;
 
 			margin-bottom: 33px;
+			@media (max-width: 500px) {
+				font-size: 40px;
+			}
 		}
 
 		&-text {
@@ -1141,17 +1417,30 @@ html {
 
 
 
-// PROMO-SECTION--------------------------------
+// ?PROMO-SECTION--------------------------------
 .main-promoSection {
 	padding-top: 139px;
 	padding-bottom: 139px;
 	background-color: #FDF0E9;
+	@media (max-width: 500px) {
+		padding-top: 96px;
+		padding-bottom: 124px;
+	}
 
 
 	&__box {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@media (max-width: 500px) {
+			flex-direction: column-reverse;
+		}
+
+		img {
+			@media (max-width: 500px) {
+				width: 100%;
+			}
+		}
 	}
 	&__content {
 		&-title {
@@ -1166,6 +1455,9 @@ html {
 			color: $color-text-dark;
 
 			margin-bottom: 32px;
+			@media (max-width: 500px) {
+				font-size: 40px;
+			}
 		}
 
 		&-text {
@@ -1184,15 +1476,22 @@ html {
 }
 
 
-// FOOTER--------------------------------
+// ?FOOTER--------------------------------
 .footer__images {
 	background-color: #FDF0E9;
-}
-
-.footer__images {
 	display: flex;
 	justify-content: center;
 
+	@media (max-width: 500px) {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	img {
+		@media (max-width: 500px) {
+			width: calc(50%);
+		}
+	}
 }
 
 .footer {
@@ -1200,10 +1499,23 @@ html {
 	padding-top: 89px;
 	padding-bottom: 52px;
 
+	&__box {
+		@media (max-width: 500px) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
 	&__content {
 		display: flex;
 		justify-content: space-between;
 		padding-bottom: 68px;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			text-align: center;
+			gap: 30px;
+		}
 
 		&-logo {
 			font-size: 24px;
@@ -1241,11 +1553,21 @@ html {
 		padding-top: 43px;
 		padding-bottom: 20px;
 		border-top: 1px solid rgba(58, 60, 86, 1);
+		@media (max-width: 500px) {
+			flex-direction: column;
+			align-items: center;
+			gap: 40px;
+			text-align: center;
+		}
+
 
 		&-text {
 			font-size: 16px;
 			font-weight: 330;
 			color: $Text_Light_Gray;
+			@media (max-width: 500px) {
+				max-width: 60%;
+			}
 		}
 		&-links {
 			display: flex;
