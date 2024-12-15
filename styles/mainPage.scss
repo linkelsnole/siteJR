@@ -896,8 +896,68 @@ html {
 		}
 
 		&-list {
-			list-style: none;
+			max-width: 570px;
+			&-item {
+				position: relative;
+				border: 1px solid rgba(58, 60, 86, 1);
+				
+				background-color: $dark-color;
+				label {
+					position: relative;
+					font-size: 24px;
+					font-weight: 700;
+					color: #fff;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: 41px 48px;
 
+					transition: 0.3s ease;
+					&::after {
+						content: '';
+						display: inline-block;
+						background: url(../images/FAQ-down.svg) no-repeat center center / contain;
+						width: 32px;
+						height: 32px;
+						margin-left: 60px;
+						cursor: pointer;
+						flex-shrink: 0;
+						transform: rotate(0deg);
+						transition: transform 0.3s ease; 
+
+						@media (max-width: 500px) {
+							align-self: flex-start;
+						}
+					}
+				}
+
+				&-content {
+					background-color: #fff;
+					overflow: hidden;
+					transition: 0.4s ease;
+					max-height: 0;
+
+					p {
+						font-size: 16px;
+						font-weight: 330;
+						color: $color-text-opacity;
+						line-height: 1.7;
+						padding: 0 48px 41px;
+					}
+				}
+			}
+
+			&-item.active {
+				label::after {
+					transform: rotate(180deg);
+					transition: transform 0.3s ease;
+				}
+			}
+
+
+			&-item:nth-child(n + 2) {
+				border-top: none;
+			}
 			li {
 				font-size: 24px;
 				font-weight: 700;
@@ -949,41 +1009,6 @@ html {
 			display: none;
 		}
 	}
-
-}
-
-
-.faq-answer {
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-	background-color: #fff;
-	max-width: 560px;
-	max-height: 170px;
-
-	@media (max-width: 500px) {
-		max-width: 470px;
-	}
-  &-content {
-    padding: 0 48px 41px 48px;
-    color: $Text_Dark_Gray;
-    font-size: 16px;
-    line-height: 1.7;
-    
-    @media (max-width: 500px) {
-      padding: 0 30px 41px 30px;
-    }
-    
-    @media (max-width: 391px) {
-      padding: 0 20px 41px 20px;
-    }
-  }
-}
-
-.main-FAQ__contentRight-list li.active {
-  background-color: #fff;
-  border-bottom: none;
-  
-
 }
 
 

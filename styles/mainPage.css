@@ -1160,7 +1160,60 @@ html {
   }
 }
 .main-FAQ__contentRight-list {
-  list-style: none;
+  max-width: 570px;
+}
+.main-FAQ__contentRight-list-item {
+  position: relative;
+  border: 1px solid rgb(58, 60, 86);
+  background-color: #28293E;
+}
+.main-FAQ__contentRight-list-item label {
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 41px 48px;
+  transition: 0.3s ease;
+}
+.main-FAQ__contentRight-list-item label::after {
+  content: "";
+  display: inline-block;
+  background: url(../images/FAQ-down.svg) no-repeat center center/contain;
+  width: 32px;
+  height: 32px;
+  margin-left: 60px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+@media (max-width: 500px) {
+  .main-FAQ__contentRight-list-item label::after {
+    align-self: flex-start;
+  }
+}
+.main-FAQ__contentRight-list-item-content {
+  background-color: #fff;
+  overflow: hidden;
+  transition: 0.4s ease;
+  max-height: 0;
+}
+.main-FAQ__contentRight-list-item-content p {
+  font-size: 16px;
+  font-weight: 330;
+  color: rgba(57, 20, 0, 0.64);
+  line-height: 1.7;
+  padding: 0 48px 41px;
+}
+.main-FAQ__contentRight-list-item.active label::after {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+.main-FAQ__contentRight-list-item:nth-child(n+2) {
+  border-top: none;
 }
 .main-FAQ__contentRight-list li {
   font-size: 24px;
@@ -1210,40 +1263,6 @@ html {
   .main-FAQ__footer {
     display: none;
   }
-}
-
-.faq-answer {
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  background-color: #fff;
-  max-width: 560px;
-  max-height: 170px;
-}
-@media (max-width: 500px) {
-  .faq-answer {
-    max-width: 470px;
-  }
-}
-.faq-answer-content {
-  padding: 0 48px 41px 48px;
-  color: rgba(57, 20, 0, 0.64);
-  font-size: 16px;
-  line-height: 1.7;
-}
-@media (max-width: 500px) {
-  .faq-answer-content {
-    padding: 0 30px 41px 30px;
-  }
-}
-@media (max-width: 391px) {
-  .faq-answer-content {
-    padding: 0 20px 41px 20px;
-  }
-}
-
-.main-FAQ__contentRight-list li.active {
-  background-color: #fff;
-  border-bottom: none;
 }
 
 .main-blog {
