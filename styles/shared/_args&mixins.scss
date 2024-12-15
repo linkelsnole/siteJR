@@ -1,0 +1,100 @@
+$dark-color: #28293E;
+$color-text-dark: #391400;
+$color-text-opacity: rgba(57, 20, 0, 0.64);
+
+$Text_Light_Gray: rgba(255, 255, 255, 0.64);
+$Text_Dark_Gray: rgba(57, 20, 0, 0.64);
+
+html {
+	background-color: $dark-color;
+	overscroll-behavior-y: none;
+}
+
+
+@mixin flex($align-items: center, $justify-content: center, $direction: row) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-direction: $direction;
+}
+
+@mixin title-orange {
+	font-size: 16px;
+	font-weight: 400;
+	color: #EF6D58;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+@mixin text-light-gray {
+	font-size: 16px;
+	font-weight: 400;
+	color: $Text_Light_Gray;
+	line-height: 1.9;
+}
+
+@mixin text-dark-gray {
+	font-size: 16px;
+	font-weight: 350;
+	color: $Text_Dark_Gray;
+	line-height: 1.9;
+}
+
+@mixin h3-title-dark {
+	font-size: 40px;
+	font-weight: 800;
+	color: $color-text-dark;
+	line-height: 48px;
+}
+
+@mixin h2-title-dark {
+	font-size: 56px;
+	font-weight: 800;
+	color: $color-text-dark;
+	line-height: 64px;
+	letter-spacing: -1px;
+}
+
+@mixin button-white {
+	color: #28293E;
+	text-transform: uppercase;
+	font-weight: 800;
+	background-color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 17px 35px 16px 35px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	&:hover {
+		color: #fff;
+		background-color: #EF6D58;
+	}
+}
+
+
+@mixin button-orange {
+	background-color: rgba(239, 109, 88, 1);
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	text-transform: uppercase;
+	padding: 15px 30px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	font-weight: 700;
+	transition: all 0.3s ease;
+	&:hover {
+		background-color: rgb(161, 71, 57);
+	}
+}
+
+
+.wrapper {
+	max-width: 1240px;
+	margin: 0 auto;
+	@media (max-width: 500px) {
+		max-width: 100%;
+		padding: 0 15px;
+	}
+}

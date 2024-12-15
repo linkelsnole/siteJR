@@ -1,0 +1,99 @@
+@import "./args&mixins";
+
+.main-contact {
+	background-color: rgba(249, 229, 218, 1);
+	padding-bottom: 40px;
+
+	&__box {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@media (max-width: 500px) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px;
+			padding: 0 50px;
+		}
+	}
+	&__content {
+		&-icon {
+			width: 147px;
+			height: 146px;
+			background: url(../images/contactMe-star.svg) no-repeat center center / cover;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top:-75px;
+			margin-left: -10px;
+			margin-bottom: 22px;
+		}
+		&-title {
+			font-size: 16px;
+			font-weight: 400;
+			color: #EF6D58;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+
+			margin-bottom: 15px;
+		}
+		&-subtitle {
+			font-size: 24px;
+			color: $color-text-dark;
+			line-height: 1.7;
+			font-weight: 700;
+			margin-bottom: 23px;
+		}
+		&-button {
+			background-color: rgb(239, 109, 88);
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			text-transform: uppercase;
+			padding: 15px 30px;
+			font-size: 14px;
+			font-weight: 500;
+			cursor: pointer;
+			font-weight: 700;
+			transition: all 0.3s ease;
+			&:hover {
+				background-color: rgb(161, 71, 57);
+			}
+		}
+	}
+
+	&__text {
+		p {
+			color: $color-text-opacity;
+			font-size: 16px;
+			font-weight: 350;
+			line-height: 1.7;
+			margin-top: 60px;
+			margin-left: 30px;
+			@media (max-width: 500px) {
+				margin-left: 0;
+			}
+		}
+	}
+	&__image {
+		background: url(../images/contactMe-cloud.svg) no-repeat center center / cover;
+		width: 282px;
+		height: 242px;
+		margin-top: 60px;
+		margin-left: 100px;
+		position: relative;
+		@media (max-width: 500px) {
+			margin: 0 auto;
+		}
+	  >img {
+			position: absolute;
+			right: -22px;
+			top: 25px;
+			@media (max-width: 500px) {
+				right: -28px;
+			}
+		}
+
+	}
+	
+}
