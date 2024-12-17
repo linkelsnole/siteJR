@@ -20,7 +20,7 @@ html {
   padding: 15px 0;
   position: sticky;
   top: 0;
-  z-index: 10000;
+  z-index: 1000;
 }
 .header__box {
   display: flex;
@@ -59,6 +59,7 @@ html {
 @media (max-width: 500px) {
   .header__menu {
     display: block;
+    z-index: 11;
   }
 }
 
@@ -96,6 +97,33 @@ html {
   }
 }
 
+@media (max-width: 500px) {
+  .header__nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    transition: all 0.375s;
+    height: 100vh;
+  }
+  .header__nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -15px;
+    background: #FEDC2A;
+    transform-origin: 0 0;
+    transform: skew(-14deg) translateX(-120%);
+    transition: all 0.275s 0.1s;
+  }
+}
 .header__nav-list {
   display: flex;
   gap: 70px;
@@ -103,14 +131,53 @@ html {
 }
 @media (max-width: 500px) {
   .header__nav-list {
-    display: none;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%; /* Should be 100%, but we have a notice message :D */
+    align-items: flex-end;
+    justify-content: center;
+    transform: translateX(-18%) skew(-16deg);
   }
 }
 .header__nav-item {
   transition: 0.4s ease;
 }
+@media (max-width: 500px) {
+  .header__nav-item {
+    display: block;
+    margin: 0.5rem 0;
+    text-align: right;
+    transform: skew(16deg);
+  }
+}
 .header__nav-item:hover {
   transform: scale(1.1);
+}
+@media (max-width: 500px) {
+  .header__nav-item a {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+@media (max-width: 500px) {
+  .header__nav-item:nth-child(1) a {
+    transition: all 275ms 175ms;
+  }
+}
+@media (max-width: 500px) {
+  .header__nav-item:nth-child(2) a {
+    transition: all 275ms 275ms;
+  }
+}
+@media (max-width: 500px) {
+  .header__nav-item:nth-child(3) a {
+    transition: all 275ms 375ms;
+  }
+}
+@media (max-width: 500px) {
+  .header__nav-item:nth-child(4) a {
+    transition: all 275ms 475ms;
+  }
 }
 .header__nav-link {
   color: #fff;
@@ -119,6 +186,36 @@ html {
   font-weight: 300;
 }
 
+@media (max-width: 500px) {
+  .header__nav.is-open {
+    opacity: 1;
+    z-index: 10;
+    visibility: visible;
+  }
+  .header__nav.is-open::before {
+    transform: skew(-14deg) translateX(0);
+  }
+  .header__nav.is-open a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .header__nav-list,
+  .header__nav-item {
+    list-style: none;
+    padding: 0;
+  }
+  .header__nav-link {
+    display: block;
+    padding: 12px 0;
+    color: #5A3B5D;
+    font-size: 1.4em;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .header.is-open {
+    height: 100vh;
+  }
+}
 html {
   background-color: #28293E;
   overscroll-behavior-y: none;

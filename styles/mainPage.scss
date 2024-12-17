@@ -900,8 +900,9 @@ html {
 			&-item {
 				position: relative;
 				border: 1px solid rgba(58, 60, 86, 1);
-				
 				background-color: $dark-color;
+				// will-change: transform;
+
 				label {
 					position: relative;
 					font-size: 24px;
@@ -913,6 +914,12 @@ html {
 					padding: 41px 48px;
 
 					transition: 0.3s ease;
+					@media (max-width: 500px) {
+						padding: 41px 30px 39px;
+					}
+					@media (max-width: 391px) {
+						padding: 41px 20px 39px;
+					}
 					&::after {
 						content: '';
 						display: inline-block;
@@ -924,6 +931,7 @@ html {
 						flex-shrink: 0;
 						transform: rotate(0deg);
 						transition: transform 0.3s ease; 
+
 
 						@media (max-width: 500px) {
 							align-self: flex-start;
@@ -951,6 +959,7 @@ html {
 				label::after {
 					transform: rotate(180deg);
 					transition: transform 0.3s ease;
+					
 				}
 			}
 
@@ -958,46 +967,8 @@ html {
 			&-item:nth-child(n + 2) {
 				border-top: none;
 			}
-			li {
-				font-size: 24px;
-				font-weight: 700;
-				color: #fff;
-				padding: 41px 48px;
-				border: 1px solid rgba(58, 60, 86, 1);
-
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				
-
-
-				@media (max-width: 500px) {
-					justify-content: space-evenly;
-					padding: 41px 30px 39px;
-				}
-				@media (max-width: 391px) {
-					padding: 41px 20px 39px;
-				}
-
-				&:after {
-					content: '';
-					display: inline-block;
-					background: url(../images/FAQ-down.svg) no-repeat center center / contain;
-					width: 32px;
-					height: 32px;
-					margin-left: 60px;
-					cursor: pointer;
-					flex-shrink: 0;
-					transform: rotate(var(--rotation, 0deg));
-          transition: transform 0.3s ease;
-					@media (max-width: 500px) {
-						align-self: flex-start;
-					}
-				}
-			}
 		}
 	}
-
 
 	&__footer {
 		display: flex;

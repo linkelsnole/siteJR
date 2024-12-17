@@ -38,7 +38,6 @@
 .services {
 	background-color: #FDF1E9;
 	padding-top: 76px;
-	padding-bottom: 107px;
 	&__box {
 	}
 	&__title {
@@ -72,15 +71,120 @@
 			display: inline-block;
 		}
 	}
-	
+
 	&__list {
-		list-style: none;
+		max-width: 100%;
+		&-item {
+			position: relative;
+			// will-change: transform;
 
-
-		&-text{
-			color: $color-text-dark;
+			label {
+			@include h2-title-dark;
+			padding: 41px 0;
+			display: flex;
+			align-items: center;
+			border-top: 1px solid rgba(243, 209, 191, 1);
+			border-bottom: 1px solid rgba(243, 209, 191, 1);
 			@media (max-width: 500px) {
-				display: none;
+				font-size: 38px;
+				line-height: 1.2;
+			}
+
+
+				transition-property: border-bottom;
+				@media (max-width: 500px) {
+					padding: 41px 30px 39px;
+				}
+				@media (max-width: 391px) {
+					padding: 41px 20px 39px;
+				}
+				&::after {
+					content: '';
+					display: inline-block;
+					background: url(../images/FAQ-down.svg) no-repeat center center / contain;
+					width: 32px;
+					height: 32px;
+					margin-left: auto;
+					cursor: pointer;
+					flex-shrink: 0;
+					transform: rotate(0deg);
+					transition: transform 0.3s ease; 
+
+
+					@media (max-width: 500px) {
+						align-self: flex-start;
+					}
+				}
+			}
+
+			&-content {
+				width: 570px;
+				margin-left: auto;
+				overflow: hidden;
+				transition: 0.4s ease;
+				max-height: 0;
+				@media (max-width: 500px) {
+					width: 100%;
+				}
+
+				p {
+					font-size: 16px;
+					font-weight: 330;
+					color: $color-text-opacity;
+					line-height: 1.7;
+					padding: 0 0 36px;
+				}
+				h3 {
+					@include h3-title-dark;
+					margin-bottom: 28px;
+					padding: 76px 0 0;
+					@media (max-width: 500px) {
+						font-size: 24px;
+						line-height: 1.2;
+						font-weight: 600;
+					}
+				}
+
+
+				&-list {
+					list-style: none;
+					padding: 0 0 100px;
+					li {
+						color: $color-text-dark;
+						font-size: 16px;
+						font-weight: 330;
+						line-height: 1.7;
+						display: flex;
+						align-items: center;
+						margin-bottom: 16px;
+						&::before {
+							content: "";
+							display: inline-block;
+							width: 32px;
+							height: 32px;
+							background: url(../images/check.svg) no-repeat center;
+							background-size: contain;
+							margin-right: 10px;
+							flex-shrink: 0;
+							transform: translateY(-5%);
+						}
+					}
+
+				}
+			}
+		}
+		&-item:nth-child(1) label, &-item:nth-child(2) label {
+			border-bottom: none;
+		}
+		&-item:nth-child(3) &-item-content-list {
+			padding-bottom: 20px;
+		}
+
+		&-item.active {
+			label::after {
+				transform: rotate(180deg);
+				transition: transform 0.3s ease;
+				
 			}
 		}
 
@@ -95,33 +199,29 @@
 			justify-content: center;
 			transform: translateY(-5%);
 			margin-right: 36px;
+			flex-shrink: 0;
 		}
-		li {
-			@include h2-title-dark;
-			padding: 41px 0;
-			border-top: 1px solid rgba(243, 209, 191, 1);
-			border-bottom: 1px solid rgba(243, 209, 191, 1);
-			display: flex;
-			align-items: center;
-			@media (max-width: 500px) {
-				font-size:40px;
-				line-height: 1.2;
-			}
+	}
 
-			&:after {
-				content: '';
-				background: url(../images/FAQ-down.svg) no-repeat center center / contain;
-				width: 32px;
-				height: 32px;
-				margin-left: auto;
-				cursor: pointer;
-			}
+	&__non-hidden-text {
+		display: inline-block;
+		color: $color-text-dark;
+		@media (max-width: 500px) {
+			display: none;
 		}
-		li:nth-child(n+2) {
-			border-top: none;
+	}
+	&__hidden-text {
+		display: none;
+		@media (max-width: 500px) {
+			display: inline-block;
+			color: $color-text-dark;
 		}
 	}
 }
+
+
+
+
 
 
 //? HOW WE WORK ----------------------------------------
@@ -130,7 +230,7 @@
 	padding-top: 107px;
 	margin-top: -1px;
 	@media (max-width: 500px) {
-		padding-top: 0;
+		padding-top: 100px;
 	}
 
 	&__title{

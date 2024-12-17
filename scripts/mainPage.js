@@ -45,6 +45,8 @@ function boxHandler(e) {
 			label.style.color = "#fff";
 		}, 300);
 	}
+
+
 	boxes.forEach(box => {
 		if (box !== currentBox && box.classList.contains('active')) {
 			box.classList.remove('active');
