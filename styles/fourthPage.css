@@ -2,6 +2,17 @@
 html {
   background-color: #28293E;
   overscroll-behavior-y: none;
+  image-rendering: pixelated;
+}
+
+body {
+  image-rendering: pixelated;
+}
+
+div {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .wrapper {

@@ -8,6 +8,17 @@ $Text_Dark_Gray: rgba(57, 20, 0, 0.64);
 html {
 	background-color: $dark-color;
 	overscroll-behavior-y: none;
+	image-rendering: pixelated;
+}
+
+body {
+	image-rendering: pixelated;
+}
+
+div {
+	will-change: transform;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden; 
 }
 
 
